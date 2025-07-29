@@ -1,44 +1,15 @@
 # Vertica
 
-Vertica is a modern web application for browsing TV shows and movies. Built with Next.js and TypeScript, it features a sleek UI, search functionality, detailed show pages, and interactive carousels.
+Vertica is a modern, self-hosted web app for browsing TV shows and movies. Built with Next.js, TypeScript, and Tailwind CSS, it features a fast UI, search, detailed show pages, and carousels.
 
-## Features
-- **Search** for TV shows and movies
-- **Show details** with episodes and cast
-- **Carousel** for featured content
-- **Responsive** and modern design
+## Setup (Self-Hosted)
 
-## Folder Structure
-```
-vertica/
-├── app/                # Next.js app directory (routes, pages, API)
-│   ├── api/            # API routes (e.g., search)
-│   ├── show/           # Dynamic show pages
-│   ├── tv/             # Dynamic TV pages
-│   └── ...             # Layout, global styles, etc.
-├── components/         # Reusable UI components
-│   └── ui/             # UI primitives (buttons, dialogs, etc.)
-├── hooks/              # Custom React hooks
-├── lib/                # Utility libraries (e.g., TMDB API)
-├── public/             # Static assets (images, icons)
-├── styles/             # Global styles
-├── package.json        # Project dependencies
-└── README.md           # Project documentation
-```
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- pnpm, npm, or yarn
-
-### Installation
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone <repo-url>
    cd vertica
    ```
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
    pnpm install
    # or
@@ -46,21 +17,33 @@ vertica/
    # or
    yarn install
    ```
+3. **Configure environment**
+   - Copy `.env.local.example` to `.env.local` (or create `.env.local`)
+   - Add your TMDB API key:
+     ```
+     TMDB_API_KEY=your_tmdb_api_key
+     ```
+4. **Run the development server**
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+   Visit [http://localhost:3000](http://localhost:3000)
 
-### Running Locally
-Start the development server:
-```bash
-pnpm dev
-# or
-npm run dev
-# or
-yarn dev
-```
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+## Choices
 
-## Customization
-- Update API keys or endpoints in `lib/tmdb.ts` as needed.
-- Modify components in `components/` to change the UI.
+- **Next.js App Router** for routing and server components
+- **TypeScript** for type safety
+- **Tailwind CSS** for utility-first styling
+- **TMDB API** for show/movie data
+- **Radix UI** and custom components for accessibility and UI consistency
 
-## License
-MIT
+## Known Issues
+
+- Some features (like authentication, watchlists) are not implemented
+- Only TMDB API is supported; no local media support
+- Error handling for API/network failures is basic
+- Some UI polish and mobile optimizations are
